@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrainerTech Pro - AI Automation for Health Professionals</title>
+    <meta name="description" content="Save 10+ hours per week with AI automation. CSU San Marcos Kinesiology Professor shows health professionals how to automate admin work.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #003366;
+            --primary-green: #00D084;
+            --white: #ffffff;
+            --light-gray: #f8f9fa;
+            --text-gray: #6c757d;
+            --dark-gray: #212529;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-green);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: #00B870;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 208, 132, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+
+        .btn-secondary:hover {
+            background-color: #002244;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 51, 102, 0.3);
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--dark-gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-green);
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--primary-blue);
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+
+        .hero .subheadline {
+            font-size: 22px;
+            color: var(--text-gray);
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+
+        .badge img {
+            width: 30px;
+            height: 30px;
+        }
+
+        /* Problem/Solution Section */
+        .problem-solution {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .problem-card {
+            background-color: #fee;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid #fcc;
+        }
+
+        .problem-card h3 {
+            color: #c00;
+            margin-bottom: 15px;
+        }
+
+        .solution-box {
+            background-color: #e8f5e9;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid var(--primary-green);
+        }
+
+        .solution-box h3 {
+            color: var(--primary-green);
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .service-card h3 {
+            color: var(--primary-blue);
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary-green);
+            margin: 20px 0;
+        }
+
+        .service-features {
+            list-style: none;
+            text-align: left;
+            margin: 20px 0;
+        }
+
+        .service-features li {
+            padding: 10px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .service-features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary-green);
+            font-weight: bold;
+        }
+
+        /* Case Studies Section */
+        .case-studies {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .case-card {
+            background-color: var(--light-gray);
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 5px solid var(--primary-green);
+        }
+
+        .case-card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+
+        .case-result {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-green);
+            margin-top: 15px;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 400px;
+            background-color: #ddd;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-gray);
+        }
+
+        .credentials {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .credentials li {
+            padding: 10px 0;
+            font-size: 18px;
+        }
+
+        /* Booking Section */
+        .booking {
+            padding: 80px 0;
+            background-color: var(--white);
+            text-align: center;
+        }
+
+        .acuity-embed {
+            margin: 40px auto;
+            max-width: 800px;
+            height: 800px;
+            border: 2px solid var(--primary-blue);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .footer-info h4 {
+            margin-bottom: 10px;
+        }
+
+        .footer-info p {
+            margin: 5px 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero .subheadline {
+                font-size: 18px;
+            }
+
+            .trust-badges {
+                gap: 20px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .services-grid, .case-grid, .problems-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Icon Styles */
+        .icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 20px;
+            fill: var(--primary-green);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">TrainerTech Pro</div>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#case-studies">Success Stories</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#booking" class="btn btn-primary">Book Assessment</a></li>
+            </ul>
+            <div class="mobile-menu" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Health Professionals: Get 10 Hours Back Every Week</h1>
+            <p class="subheadline">CSU San Marcos Kinesiology Professor Shows You How to Automate Your Admin Work with AI in 5 Days</p>
+            <a href="#booking" class="btn btn-primary">Book Your Free AI Assessment</a>
+            
+            <div class="trust-badges">
+                <div class="badge">
+                    <svg class="icon" style="width: 30px; height: 30px;" viewBox="0 0 24 24">
+                        <path d="M12 2L1 21h22L12 2zm0 3.8L19.5 19h-15L12 5.8z"/>
+                    </svg>
+                    <span>CSU San Marcos</span>
+                </div>
+                <div class="badge">
+                    <svg class="icon" style="width: 30px; height: 30px;" viewBox="0 0 24 24">
+                        <path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/>
+                    </svg>
+                    <span>100% Success Rate</span>
+                </div>
+                <div class="badge">
+                    <svg class="icon" style="width: 30px; height: 30px;" viewBox="0 0 24 24">
+                        <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                    </svg>
+                    <span>15-Minute Setup</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem/Solution Section -->
+    <section class="problem-solution">
+        <div class="container">
+            <div class="section-header">
+                <h2>The Admin Work Is Killing Your Practice</h2>
+            </div>
+            
+            <div class="problems-grid">
+                <div class="problem-card">
+                    <h3>Drowning in Paperwork</h3>
+                    <p>Spending 2+ hours daily on patient notes, insurance forms, and documentation instead of helping clients</p>
+                </div>
+                <div class="problem-card">
+                    <h3>Missing Appointments</h3>
+                    <p>No-shows and scheduling conflicts eating into your revenue because follow-ups fall through the cracks</p>
+                </div>
+                <div class="problem-card">
+                    <h3>Insurance Nightmares</h3>
+                    <p>Hours wasted on verification, claims, and resubmissions that could be automated in minutes</p>
+                </div>
+            </div>
+            
+            <div class="solution-box">
+                <h3>Custom AI Automation Built by a Professor Who Understands Your Industry</h3>
+                <p>I combine my kinesiology expertise with cutting-edge AI to create automation systems specifically for health and wellness professionals. No generic solutions – just practical tools that work for YOUR practice.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Choose Your AI Transformation Path</h2>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>5-Day AI Transformation</h3>
+                    <p class="price">$1,497</p>
+                    <p>Complete overhaul of your admin systems</p>
+                    <ul class="service-features">
+                        <li>Full practice audit & AI strategy</li>
+                        <li>Custom automation for YOUR workflows</li>
+                        <li>5 days of hands-on implementation</li>
+                        <li>30 days of support included</li>
+                        <li>ROI guarantee or money back</li>
+                    </ul>
+                    <a href="#booking" class="btn btn-primary">Start Transformation</a>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Done-in-48-Hours Quick Start</h3>
+                    <p class="price">$497</p>
+                    <p>Fast implementation for urgent needs</p>
+                    <ul class="service-features">
+                        <li>3 key automations installed</li>
+                        <li>Appointment & follow-up system</li>
+                        <li>Basic note templates with AI</li>
+                        <li>2 training sessions included</li>
+                        <li>14-day support period</li>
+                    </ul>
+                    <a href="#booking" class="btn btn-secondary">Get Started Fast</a>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Monthly AI Management</h3>
+                    <p class="price">$297/mo</p>
+                    <p>Ongoing optimization & support</p>
+                    <ul class="service-features">
+                        <li>Weekly system optimization</li>
+                        <li>New automation rollouts</li>
+                        <li>Priority support response</li>
+                        <li>Quarterly strategy reviews</li>
+                        <li>Cancel anytime, no contracts</li>
+                    </ul>
+                    <a href="#booking" class="btn btn-secondary">Secure Your Spot</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section id="case-studies" class="case-studies">
+        <div class="container">
+            <div class="section-header">
+                <h2>Real Results from Real Practices</h2>
+            </div>
+            
+            <div class="case-grid">
+                <div class="case-card">
+                    <h3>PT Clinic Saves 15 Hours/Week on Insurance Verification</h3>
+                    <p>Automated their entire insurance verification process, reducing staff overtime and increasing patient volume by 30%.</p>
+                    <p class="case-result">ROI: 287% in First Month</p>
+                </div>
+                
+                <div class="case-card">
+                    <h3>Fitness Studio Fills Classes 40% Faster</h3>
+                    <p>AI-powered follow-up sequences and smart scheduling increased class bookings while eliminating manual outreach.</p>
+                    <p class="case-result">Revenue Up $3,200/Month</p>
+                </div>
+                
+                <div class="case-card">
+                    <h3>Chiropractor Eliminates 2 Hours of Daily Notes</h3>
+                    <p>Custom AI note templates and voice-to-text automation freed up time for 8 additional patients per week.</p>
+                    <p class="case-result">Time Saved: 10 Hours/Week</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Trust a Kinesiology Professor with Your AI?</h2>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-image">
+                    [Professor Photo]
+                </div>
+                <div class="about-text">
+                    <h3>Tony Sommers, M.S.</h3>
+                    <ul class="credentials">
+                        <li>✓ M.S. Movement Science, University of Michigan</li>
+                        <li>✓ Current Lecturer, CSU San Marcos Kinesiology Department</li>
+                        <li>✓ Former NCAA Division 1 Athlete</li>
+                        <li>✓ Built Podium Athletics to 130,000+ users</li>
+                        <li>✓ Certified in 12+ AI automation platforms</li>
+                    </ul>
+                    <p>I spent years in the health and fitness industry watching talented professionals burn out on administrative tasks. When I discovered AI automation, I knew I had to bring these tools to my colleagues.</p>
+                    <p>Now I combine my deep understanding of health practices with cutting-edge AI to create solutions that actually work in the real world – not just in theory.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="booking">
+        <div class="container">
+            <div class="section-header">
+                <h2>Book Your Free AI Assessment</h2>
+                <p>30-minute strategy session to identify your biggest time-wasters and quick wins</p>
+            </div>
+            
+            <!-- Acuity Scheduling Embed -->
+            <div class="acuity-embed">
+                <iframe src="https://app.acuityscheduling.com/schedule.php?owner=34323687&calendarID=12172153&ref=embedded_csp" 
+                        title="Schedule Appointment" 
+                        width="100%" 
+                        height="800" 
+                        frameBorder="0">
+                </iframe>
+            </div>
+            
+            <p style="margin-top: 20px; color: var(--text-gray);">
+                Available: Tuesday/Thursday 2-5pm, Wednesday 10am-1pm PST<br>
+                Can't find a time? Call or text: (858) 401-6878
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h4>TrainerTech Pro</h4>
+                    <p>AI Automation for Health Professionals</p>
+                </div>
+                <div class="footer-info">
+                    <h4>Contact</h4>
+                    <p>Phone: (858) 401-6878</p>
+                    <p>Email: tony@trainertechpro.com</p>
+                </div>
+                <div class="footer-info">
+                    <h4>Sommers Ventures LLC</h4>
+                    <p>Encinitas, CA</p>
+                    <p>&copy; 2025 All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'all 0.6s ease-out';
+            observer.observe(section);
+        });
+
+        // Form submission handling (if you add a contact form)
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            // Add your form handling logic here
+            console.log('Form submitted');
+        }
+
+        // Track button clicks for analytics
+        document.querySelectorAll('.btn').forEach(button => {
+            button.addEventListener('click', function() {
+                console.log('Button clicked:', this.textContent);
+                // Add your analytics tracking here
+            });
+        });
+    </script>
+    <!-- Acuity Scheduling Embed JS -->
+    <script src="https://embed.acuityscheduling.com/js/embed.js" type="text/javascript"></script>
+</body>
+</html>
